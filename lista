@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class LentesYAccesorios {
+
+    public static void main(String[] args) {
+        ArrayList<String> lista = new ArrayList<>();
+        lista.add("armazones");
+        lista.add("lentes de sol");
+        lista.add("estuches");
+        lista.add("limpiadores");
+        lista.add("fundas");
+        lista.add("cordones");
+        lista.add("pañuelos");
+        lista.add("repuestos");
+        lista.add("lentes deportivos");
+        lista.add("accesorios para lentes");
+
+        Collections.sort(lista);
+
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
+
+        do {
+            System.out.println("Menú:");
+            System.out.println("1. Buscar un artículo");
+            System.out.println("2. Mostrar la lista de artículos");
+            System.out.println("3. Remover artículo");
+            System.out.println("4. Agregar artículo");
+            System.out.println("5. Salir del programa");
+            System.out.print("Seleccione una opción: ");
+
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese el nombre del artículo a buscar: ");
+                    String elementoBuscar = scanner.next();
+                    int indice = lista.indexOf(elementoBuscar);
+                    if (indice != -1) {
+                        System.out.println(elementoBuscar + " encontrado");
+                    } else {
+                        System.out.println(elementoBuscar + " no encontrado");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Lista de artículos: " + lista);
+                    break;
+                case 3:
+                    System.out.print("Ingrese el nombre del artículo a remover: ");
+                    String articuloARemover = scanner.next();
+                    boolean removido = lista.remove(articuloARemover);
+                    if (removido) {
+                        System.out.println(articuloARemover + " removido exitosamente");
+                    } else {
+                        System.out.println(articuloARemover + " no encontrado en la lista");
+                    }
+                    break;
+                case 4:
+                    System.out.print("Ingrese el nombre del artículo a agregar: ");
+                    String articuloAAgregar = scanner.next();
+                    if (!lista.contains(articuloAAgregar)) {
+                        lista.add(articuloAAgregar);
+                        Collections.sort(lista);
+                        System.out.println(articuloAAgregar + " agregado exitosamente");
+                    } else {
+                        System.out.println(articuloAAgregar + " ya está en la lista.");
+                    }
+                    break;
+                case 5:
+                    System.out.println("Saliendo del programa");
+                    break;
+                default:
+                    System.out.println("Intente de nuevo");
+            }
+        } while (opcion != 5);
+
+        scanner.close();
+    }
+}
