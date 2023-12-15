@@ -1,0 +1,85 @@
+/* Variables */
+:root {
+    --background: #b8dbd9;
+    --details: #586f7c;
+    --input-border: 1px solid var(--details);
+    --input-padding: 15px;
+    --button-padding: 15px;
+  }
+  
+  /* Estilos */
+  body {
+    background-color: var(--background);
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    text-align: center;
+    color: var(--details);
+  }
+  
+  #title h2 {
+    padding: 20px;
+    font-weight: bold;
+    letter-spacing: 1rem;
+  }
+  
+  input, textarea {
+    background-color: transparent;
+    border: var(--input-border);
+    margin: 10px;
+    padding: var(--input-padding);
+    font-size: 15px;
+  }
+  
+  input[type="text"]:focus, textarea:focus {
+    box-shadow: inset 0px 0px 0px 3px var(--details);
+    transform: scale(1.1);
+  }
+  
+  input[type="button"] {
+    color: var(--background);
+    background-color: var(--details);
+    padding: var(--button-padding);
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type="button"]:hover {
+    border: 3px solid var(--details);
+    background-color: var(--background);
+    color: var(--details);
+    font-weight: bold;
+  }
+  
+  textarea {
+    padding: var(--input-padding);
+  }
+  
+  input[type="text"]:hover, textarea:hover {
+    box-shadow: inset 0px 0px 0px 3px var(--details);
+  }
+  /* Cambios en los selectores para que coincidan con los IDs de tu HTML */
+#latitude, #longitude {
+  padding: 10px 40px;
+  background-color: #97b398;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* La ruta de la imagen debe ser ajustada según la ubicación real del icono */
+  background-image: url(mapa.jpg.jpeg);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 20px;
+}
+
+#latitude:hover, #longitude:hover {
+  background-color: #9dcf9f;
+}
+
+#latitude:active, #longitude:active {
+  background-color: #a1c7a3;
+}
