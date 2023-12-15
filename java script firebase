@@ -1,0 +1,75 @@
+import { initializeApp }
+  from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+
+import { getFirestore, collection, addDoc }
+  from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyBtXNsX-6UTMfZMlrto-HcAA8XuNfbhPfY",
+  authDomain: "manshine-city.firebaseapp.com",
+  projectId: "manshine-city",
+  storageBucket: "manshine-city.appspot.com",
+  messagingSenderId: "598823440008",
+  appId: "1:598823440008:web:b87cedd54d9f6133c5193d",
+  measurementId: "G-B4PXYHXJDS"
+
+};
+
+
+
+const app = initializeApp(firebaseConfig); //Inicializar la aplicación
+const firestore = getFirestore(app); // Obtén la instancia de Firestore
+
+console.log("Conexión a Firebase establecida correctamente.");
+
+const latitude = document.getElementById("latitude");
+const longitude = document.getElementById("longitude");
+
+var guardar = document.getElementById("submit");
+
+guardar.addEventListener('click', async function (event) {
+  
+  event.preventDefault();
+  console.log("Conexión .");
+  const latitude1 = latitude.value;
+  const longitude1 = longitude.value;
+
+  console.log("irebase establecida correctamente.");
+
+  try {
+    console.log("stablecida correctamente.");
+    await addDoc(collection(firestore, "efren"), {
+        latitude: latitude1,
+        longitude: longitude1,
+    
+     
+    });
+    console.log("Ca correctamente.");
+  } catch (error) {
+    console.error("Error al agregar datos", error);
+  }
+});
+/*
+formulario.addEventListener("submit", async function (event) {
+  
+  event.preventDefault();
+
+  const latitude = latitude.value;
+  const longitude = longitude.value;
+
+ 
+
+  try {
+    await addDoc(collection(firestore, "efren"), {
+        latitude: latitude,
+        longitude: longitude,
+    
+     
+    });
+  } catch (error) {
+    console.error("Error al agregar datos", error);
+  }
+});*/
