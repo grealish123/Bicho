@@ -1,0 +1,124 @@
+<!DOCTYPE html> 
+<html> 
+<br>
+<br>
+<br>
+  <head> 
+    <br>
+    <br>
+    <br>
+    <div class="login-box">
+     
+  </div>
+  <br>
+  
+    <title>SEGUNDA OPORTUNIDAD </title>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="diseño.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-XXXXX" crossorigin="anonymous" />
+   
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore-compat.js"></script>
+
+    <script type = "module" src = "js.js"></script>
+    <br>
+    <br>
+    <h1 class="icon-etsy">mapa</h1>
+
+  
+            
+            <label class="icon-menu" for="menu-bar"></label>
+    <br>
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" /> 
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" 
+    type="text/javascript" charset="utf-8"></script> 
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" 
+    type="text/javascript" charset="utf-8"></script> 
+    <script src="mapa.js"></script>
+  <script type="text/javascript" charset="utf-8" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" ></script> 
+ <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" /> 
+ <script  src="limpiar.js"></script>
+ <script  src="efren.js"></script>
+  
+  </head> 
+  <body> 
+    <div>
+      <label for="latitude">
+        <i class="fas fa-map-marker-alt"></i> Latitud:</label>
+      <input type="text" id="latitude" placeholder="Ej. 52.5">
+      <br>
+      <label for="longitude">
+        <i class="fas fa-map-marker-alt"></i> Longitud:
+    </label>
+    
+      <input type="text" id="longitude" placeholder="Ej. 14.4">
+      <br>
+      <!-- Agrega un icono usando Font Awesome -->
+      <button onclick="buscarCoordenadas()"><i class="fas fa-search"></i> Buscar</button>
+      <!-- Agrega un icono usando un emoji Unicode <button class="button is-danger is-rounded" id = "submit">Registrar</button> -->
+      <button id="submit"><i class="far fa-save"></i> Guardar</button>
+  
+
+      <button onclick="limpiarCampos()"><i class="fas fa-broom"></i> Limpiar</button>
+
+      <!-- Resto de tu formulario -->
+      <form>
+        <label for="lugares">Selecciona un lugar:</label>
+        <select id="lugares" name="lugares">
+          <option value="Farmacia">Farmacia</option>
+          <option value="Hospitales">Hospitales</option>
+          <option value="Iglesia">Iglesia</option>
+          <option value="Bomberos">Bomberos</option>
+          <option value="Seguridad publica">Seguridad publica</option>
+        </select>
+      </form>
+    </div>    <div style="width: 640px; height: 480px" id="mapContainer" class="mapContainer"></div> 
+    <script> 
+      // Initialize the platform object 
+      var platform = new H.service.Platform({ 
+        'apikey': 'fz-PHRQfVJOvhspH4KZIMCun92Wqy4bxmrFNr1WaY8M' 
+      }); 
+ 
+ 
+ 
+     // Obtain the default map types from the platform object 
+      var maptypes = platform.createDefaultLayers(); 
+ 
+      // Instantiate (and display) the map 
+      var map = new H.Map( 
+        document.getElementById('mapContainer'), 
+        maptypes.vector.normal.map, 
+        { 
+          zoom: 10, 
+          center: { lng: 14.4, lat: 52.5 }, 
+     
+        }); 
+   // Create the default UI: 
+   //const ui = H.ui.UI.createDefault(map, maptypes); 
+   // Create the default UI: 
+  const ui = H.ui.UI.createDefault(map, maptypes, 'es-ES'); 
+  const control = ui.getControl('mapsettings');  
+  // Replace 'controlName' with the name of the control you want to manage, for example, 'mapsettings.' 
+      
+     // MapEvents enables the event system. 
+   // The behavior variable implements default interactions for pan/zoom (also on mobile touch environments). 
+   const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map)); 
+ 
+   // Enable dynamic resizing of the map, based on the current size of the enclosing cntainer 
+   window.addEventListener('resize', () => map.getViewPort().resize()); 
+
+
+
+
+
+
+   
+    
+    </script> 
+   <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
+     <script  src="efren.js"></script>
+  </body> 
+</html>
